@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="topbar" data-dropdown="dropdown">
+        <div class="fill">
+            <div class="container">
+              <ul class="nav">
+                <li><a href="{% url school.stjoseph.views.home %}">Home</a></li>
+                <li class="dropdown">
+                  <a class="dropdown-toggle" href="#">About</a>
+                  <ul class="dropdown-menu">
+                    <li><a href="{% url school.stjoseph.views.history %}">History</a></li>
+                    <li><a href="{% url school.stjoseph.views.song %}">School Song</a></li>
+                    <li><a href="{% url school.stjoseph.views.principal %}">Principal's Message</a></li>
+                  </ul>
+                </li>
+                <li class="dropdown">
+                  <a class="dropdown-toggle" href="#">The School</a>
+                  <ul class="dropdown-menu">
+                    <li><a href="{% url school.stjoseph.views.information %}">Information</a></li>
+                    <li><a href="{% url school.stjoseph.views.infrastructure %}">Infrastructure</a></li>
+                    <li><a href="{% url school.stjoseph.views.activities %}">Activities</a></li>
+                    <li><a href="{% url school.stjoseph.views.halloffame %}">Hall Of Fame</a></li>
+                  </ul>
+                </li>
+                <li><a href="{% url school.stjoseph.views.staff %}">Staff</a></li>
+                <li><a href="{% url school.stjoseph.views.students %}">Students</a></li>
+                <li><a href="{% url school.stjoseph.views.alumni %}">Alumni</a></li>
+                <li><a href="{% url school.stjoseph.views.gallery %}">Gallery</a></li>
+                <li class="active"><a href="#">Contact</a></li>
+              </ul>
+              <div class="pull-right">
+                <ul class="nav">
+                    {% if uname %}
+                        <li><a href="/profile/{{ id }}/">{{ uname }}</a></li>
+                        <li><a href="{% url school.stjoseph.views.logoutu %}">Logout</a></li>
+                    {% else %}
+                        <li><a href="{% url school.stjoseph.views.loginu %}">Login</a></li>
+                        <li><a href="{% url school.stjoseph.views.register %}">Register</a></li>
+                    {% endif %}
+                </ul>
+              </div>
+            </div>
+        </div>    
+    </div>
+    <div class="container">
+        <div class="content">
+            <div class="page-header">
+              <h1>St. Joseph's Convent High School<small>Robertsganj</small></h1>
+            </div>
+            <div class="alert-message block-message success">
+                <h2>Contact</h2>
+            </div>
+            <div class="row">
+                <div class="span11">
+                    <div class="row">
+                        <div class="span5">
+                            <h4>Address:</h4>
+                            <address>
+                                <strong>St. Joseph's Convent High School</strong>
+                                <br>Near Irrigation Department
+                                <br>Robertsganj, Sonebhadra
+                                <br>U.P. - 231216
+                            </address>
+                        </div>
+                        <div class="span5">
+                            <h4>Phone:</h4>
+                            <address>
+                                (05444) 222311
+                            </address>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="span5">
+                            <h4>E-Mail:</h4>
+                            <address>
+                                <a mailto="pricipal@stjosephrbgj.org.in">principal [at] stjosephrbgj.org.in</a><br/>
+                                <a mailto="stjoseph.rbj@gmail.com">stjoseph.rbj [at] gmail.com</a>
+                            </address>
+                        </div>
+                        <div class="span5">
+                            <h4>Web Admin:</h4>
+                            <address>
+                                <a mailto="webadmin@stjosephrbgj.org.in">webadmin [at] stjosephrbgj.org.in</a>
+                            </address>
+                        </div>
+                    </div>
+                    <p><i>Note: In case of any bug/mistake on the website, please report it to the Web Admin.</i></p>
+                </div>
+                <div class="span5">
+                    <div class="fb-like-box" data-href="http://www.facebook.com/stjosephrbj" data-width="260" data-height="230" data-show-faces="false" data-stream="true" data-header="false"></div>
+                </div>
+            </div>
+            <div class="actions">
+            </div>
+        </div>
+        <footer>
+            <p>&copy; 2012 St. Joseph's Convent High School, Robertsganj</p>
+        </footer> 
+    </div>
+{% endblock %}

@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="topbar" data-dropdown="dropdown">
+        <div class="fill">
+            <div class="container">
+              <ul class="nav">
+                <li><a href="{% url school.stjoseph.views.home %}">Home</a></li>
+                <li class="dropdown">
+                  <a class="dropdown-toggle" href="#">About</a>
+                  <ul class="dropdown-menu">
+                    <li><a href="{% url school.stjoseph.views.history %}">History</a></li>
+                    <li><a href="{% url school.stjoseph.views.song %}">School Song</a></li>
+                    <li><a href="{% url school.stjoseph.views.principal %}">Principal's Message</a></li>
+                  </ul>
+                </li>
+                <li class="dropdown">
+                  <a class="dropdown-toggle" href="#">The School</a>
+                  <ul class="dropdown-menu">
+                    <li><a href="{% url school.stjoseph.views.information %}">Information</a></li>
+                    <li><a href="{% url school.stjoseph.views.infrastructure %}">Infrastructure</a></li>
+                    <li><a href="{% url school.stjoseph.views.activities %}">Activities</a></li>
+                    <li><a href="{% url school.stjoseph.views.halloffame %}">Hall Of Fame</a></li>
+                  </ul>
+                </li>
+                <li><a href="{% url school.stjoseph.views.staff %}">Staff</a></li>
+                <li><a href="{% url school.stjoseph.views.students %}">Students</a></li>
+                <li><a href="{% url school.stjoseph.views.alumni %}">Alumni</a></li>
+                <li><a href="{% url school.stjoseph.views.gallery %}">Gallery</a></li>
+                <li><a href="{% url school.stjoseph.views.contact %}">Contact</a></li>
+              </ul>
+              <div class="pull-right">
+                <ul class="nav">
+                    <li><a href="/profile/{{ id }}/">{{ uname }}</a></li>
+                    <li><a href="{% url school.stjoseph.views.logoutu %}">Logout</a></li>
+                </ul>
+              </div>
+            </div>
+        </div>    
+    </div>
+    <div class="container">
+        <div class="content">
+            <div class="page-header">
+              <h1>St. Joseph's Convent High School<small>Robertsganj</small></h1>
+            </div>
+            <div class="alert-message block-message success">
+                <h2>Upload Image</h2>
+            </div>
+            {% if updone %}
+                <p><i>Images Updated! :)</i></p>
+                <div class="actions"></div>
+            {% endif %}
+        </div>
+        <footer>
+            <p>&copy; 2012 St. Joseph's Convent High School, Robertsganj</p>
+        </footer> 
+    </div>
+{% endblock %}

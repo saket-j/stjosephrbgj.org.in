@@ -1,0 +1,320 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="topbar" data-dropdown="dropdown">
+        <div class="fill">
+            <div class="container">
+              <ul class="nav">
+                <li><a href="{% url school.stjoseph.views.home %}">Home</a></li>
+                <ul class="dropdown-menu">
+                    <li><a href="{% url school.stjoseph.views.history %}">History</a></li>
+                    <li><a href="{% url school.stjoseph.views.song %}">School Song</a></li>
+                    <li><a href="{% url school.stjoseph.views.principal %}">Principal's Message</a></li>
+                  </ul>
+                </li>
+                <li class="dropdown">
+                  <a class="dropdown-toggle" href="#">About</a>
+                  <ul class="dropdown-menu">
+                    <li><a href="{% url school.stjoseph.views.history %}">History</a></li>
+                    <li><a href="{% url school.stjoseph.views.song %}">School Song</a></li>
+                    <li><a href="{% url school.stjoseph.views.principal %}">Principal's Message</a></li>
+                  </ul>
+                </li>
+                <li class="dropdown">
+                  <a class="dropdown-toggle" href="#">The School</a>
+                  <ul class="dropdown-menu">
+                    <li><a href="{% url school.stjoseph.views.information %}">Information</a></li>
+                    <li><a href="{% url school.stjoseph.views.infrastructure %}">Infrastructure</a></li>
+                    <li><a href="{% url school.stjoseph.views.activities %}">Activities</a></li>
+                    <li><a href="#">Hall Of Fame</a></li>
+                  </ul>
+                </li>
+                <li><a href="{% url school.stjoseph.views.staff %}">Staff</a></li>
+                <li><a href="{% url school.stjoseph.views.students %}">Students</a></li>
+                <li><a href="{% url school.stjoseph.views.alumni %}">Alumni</a></li>
+                <li><a href="{% url school.stjoseph.views.gallery %}">Gallery</a></li>
+                <li><a href="{% url school.stjoseph.views.contact %}">Contact</a></li>
+              </ul>
+              <div class="pull-right">
+                <ul class="nav">
+                    {% if uname %}
+                        <li><a href="/profile/{{ id }}/">{{ uname }}</a></li>
+                        <li><a href="{% url school.stjoseph.views.logoutu %}">Logout</a></li>
+                    {% else %}
+                        <li><a href="{% url school.stjoseph.views.loginu %}">Login</a></li>
+                        <li><a href="{% url school.stjoseph.views.register %}">Register</a></li>
+                    {% endif %}
+                </ul>
+              </div>
+            </div>
+        </div>    
+    </div>
+    <div class="container">
+        <div class="content">
+            <div class="page-header">
+              <h1>St. Joseph's Convent High School<small>Robertsganj</small></h1>
+            </div>
+            <div class="alert-message block-message success">
+                <h2>Hall Of Fame</h2>
+            </div>
+            <div class="subhead">
+                <h3>The School Cabinet <small>(2011-2012)</small></h3>
+            </div><br/>
+            <div class="row">
+                <div class="span3 offset1">
+                    <h5>School Pupil Leader</h5>
+                    Astha Verma
+                </div>
+                <div class="span3  offset1">
+                    <h5>Assistant Leader</h5>
+                    Ashutosh
+                </div>
+            </div>
+            <div class="row">
+                <div class="span8">
+                    <br/><h5>Gandhi House</h5>
+                    <div class="row">
+                        <div class="span3 offset1">
+                            <h5>Leader</h5>
+                            Avinash Pandey
+                        </div>
+                        <div class="span3">
+                            <h5>Vice Leader</h5>
+                            Sheikh Rukhsar
+                        </div>
+                    </div>
+                </div>
+                <div class="span8">
+                    <br/><h5>Joseph House</h5>
+                    <div class="row">
+                        <div class="span3 offset1">
+                            <h5>Leader</h5>
+                            Arkisha Srivastava
+                        </div>
+                        <div class="span3">
+                            <h5>Vice Leader</h5>
+                            Piyush Singh
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="span8">
+                    <br/><h5>Tagore House</h5>
+                    <div class="row">
+                        <div class="span3 offset1">
+                            <h5>Leader</h5>
+                            Samriddhi
+                        </div>
+                        <div class="span3">
+                            <h5>Vice Leader</h5>
+                            Risabh Keserwani
+                        </div>
+                    </div>
+                </div>
+                <div class="span8">
+                    <br/><h5>Teresa House</h5>
+                    <div class="row">
+                        <div class="span3 offset1">
+                            <h5>Leader</h5>
+                            Aman Singh Chandel
+                        </div>
+                        <div class="span3">
+                            <h5>Vice Leader</h5>
+                            Shriya Jalan
+                        </div>
+                    </div>
+                </div>
+            </div> 
+            <div class="row">
+                <div class="span8">
+                    <br/><h5>L.A.</h5>
+                    <div class="row">
+                        <div class="span3 offset1">
+                            <h5>Leader</h5>
+                            Nitin Kr. Yadav
+                        </div>
+                        <div class="span3">
+                            <h5>Vice Leader</h5>
+                            Ayushi Chandel
+                        </div>
+                    </div>
+                </div>
+                <div class="span8">
+                    <br/><h5>Discipline</h5>
+                    <div class="row">
+                        <div class="span3 offset1">
+                            <h5>Leader</h5>
+                            Shreya Srivastava
+                        </div>
+                        <div class="span3">
+                            <h5>Vice Leader</h5>
+                            Aman Gupta
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="span8">
+                    <br/><h5>Cleanliness</h5>
+                    <div class="row">
+                        <div class="span3 offset1">
+                            <h5>Leader</h5>
+                            Pratibha Kedia
+                        </div>
+                        <div class="span3">
+                            <h5>Vice Leader</h5>
+                            Vasudha Surendra
+                        </div>
+                    </div>
+                </div>
+                <div class="span8">
+                    <br/><h5>Sports</h5>
+                    <div class="row">
+                        <div class="span3 offset1">
+                            <h5>Leader</h5>
+                            Neha Rai
+                        </div>
+                        <div class="span3">
+                            <h5>Vice Leader</h5>
+                            Ashutosh Chaturvedi
+                        </div>
+                    </div>
+                </div>
+            </div><br/> 
+            <div class="subhead">
+                <h3>Our Principals</h3>
+            </div><br/>
+            <div class="row">
+                <div class="span14 offset1">
+                    <table class="zebra-striped bordered-table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Name</th>
+                                <th>Years</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>10</td>
+                                <td>Sr Mariella</td>
+                                <td>July 1986 to June 1993</td>
+                            </tr>
+                            <tr>
+                                <td>11</td>
+                                <td>Sr Cicily Mathew</td>
+                                <td>July 1993 to June 1998</td>
+                            </tr>
+                            <tr>
+                                <td>12</td>
+                                <td>Sr Nirupa</td>
+                                <td>July 1998 to June 2000</td>
+                            </tr>
+                            <tr>
+                                <td>13</td>
+                                <td>Sr Celestia</td>
+                                <td>July 2000 to June 2008</td>
+                            </tr>
+                            <tr>
+                                <td>14</td>
+                                <td>Sr Lucy</td>
+                                <td>July 2008 to present</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="subhead">
+                <h3>Our Achievers <small>(Class X)</small></h3>
+            </div><br/>
+            <div class="row">
+                <div class="span14 offset1">
+                    <table class="zebra-striped bordered-table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Name</th>
+                                <th>Percentage</th>
+                                <th>Session</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Aanchal Choudhary</td>
+                                <td>86.8%</td>
+                                <td>1999-2000</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Priyanka Srivastava</td>
+                                <td>86.8%</td>
+                                <td>1999-2000</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Akanksha</td>
+                                <td>84.6%</td>
+                                <td>2000-2001</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>Shivendra Srivastava</td>
+                                <td>85.8%</td>
+                                <td>2001-2002</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>Shubhankar Venkatesh</td>
+                                <td>85.4%</td>
+                                <td>2002-2003</td>
+                            </tr>
+                            <tr>
+                                <td>6</td>
+                                <td>Ashish Kumar Gupta</td>
+                                <td>89.4%</td>
+                                <td>2003-2004</td>
+                            </tr>
+                            <tr>
+                                <td>7</td>
+                                <td>Abhinav Kumar Shukla</td>
+                                <td>93.4%</td>
+                                <td>2004-2005</td>
+                            </tr>
+                            <tr>
+                                <td>8</td>
+                                <td>Abhist Gaurav</td>
+                                <td>89.6%</td>
+                                <td>2005-2006</td>
+                            </tr>
+                            <tr>
+                                <td>9</td>
+                                <td>Kirti Singh</td>
+                                <td>94.6%</td>
+                                <td>2006-2007</td>
+                            </tr>
+                            <tr>
+                                <td>10</td>
+                                <td>Abhishek Kumar</td>
+                                <td>93.4%</td>
+                                <td>2007-2008</td>
+                            </tr>
+                            <tr>
+                                <td>11</td>
+                                <td>Agniwesh P. Maurya</td>
+                                <td>95.8%</td>
+                                <td>2008-2009</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="actions">
+            </div>
+        </div>
+        <footer>
+            <p>&copy; 2012 St. Joseph's Convent High School, Robertsganj</p>
+        </footer> 
+    </div>
+{% endblock %}

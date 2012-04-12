@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="topbar" data-dropdown="dropdown">
+        <div class="fill">
+            <div class="container">
+              <ul class="nav">
+                <li><a href="{% url school.stjoseph.views.home %}">Home</a></li>
+                <li class="dropdown">
+                  <a class="dropdown-toggle" href="#">About</a>
+                  <ul class="dropdown-menu">
+                    <li><a href="{% url school.stjoseph.views.history %}">History</a></li>
+                    <li><a href="{% url school.stjoseph.views.song %}">School Song</a></li>
+                    <li><a href="{% url school.stjoseph.views.principal %}">Principal's Message</a></li>
+                  </ul>
+                </li>
+                <li class="dropdown">
+                  <a class="dropdown-toggle" href="#">The School</a>
+                  <ul class="dropdown-menu">
+                    <li><a href="{% url school.stjoseph.views.information %}">Information</a></li>
+                    <li><a href="{% url school.stjoseph.views.infrastructure %}">Infrastructure</a></li>
+                    <li><a href="{% url school.stjoseph.views.activities %}">Activities</a></li>
+                    <li><a href="{% url school.stjoseph.views.halloffame %}">Hall Of Fame</a></li>
+                  </ul>
+                </li>
+                <li><a href="{% url school.stjoseph.views.staff %}">Staff</a></li>
+                <li><a href="{% url school.stjoseph.views.students %}">Students</a></li>
+                <li><a href="{% url school.stjoseph.views.alumni %}">Alumni</a></li>
+                <li><a href="{% url school.stjoseph.views.gallery %}">Gallery</a></li>
+                <li><a href="{% url school.stjoseph.views.contact %}">Contact</a></li>
+              </ul>
+              <div class="pull-right">
+                <ul class="nav">
+                    <li><a href="{% url school.stjoseph.views.loginu %}">Login</a></li>
+                    <li><a href="{% url school.stjoseph.views.register %}">Register</a></li>
+                </ul>
+              </div>
+            </div>
+        </div>    
+    </div>
+    <div class="container">
+        <div class="content">
+            <div class="page-header">
+              <h1>St. Joseph's Convent High School<small>Robertsganj</small></h1>
+            </div>
+            <div class="alert-message block-message success">
+                <h2>Forgot Password</h2>
+            </div>
+            {% if npsend %}
+                <p><i>A Password reset link has been sent to your email address. Please use it to reset your password. In case you face any problem, contact Web Admin.</i></p>
+                <div class="actions"></div>
+            {% else %}
+                <form action="/forgotpass/" method="post">{% csrf_token %}
+                    {{ fpform.non_field_errors }}
+                    <div class="fieldWrapper">
+                      {% if fpform.email.errors %}
+                        <div class="clearfix error">
+                      {% else %}
+                        <div class="clearfix">
+                      {% endif %}
+                          <label for="id_email">E-Mail:</label>
+                          <div class="input">
+                              {{ fpform.email }}
+                              <span class="help-inline">Enter Your Valid Email Address (Required)</span>
+                          </div>
+                        </div>
+                    </div>  
+                    <div class="fieldWrapper">
+                      {% if fpform.cap.errors %}
+                        <div class="clearfix error">
+                      {% else %}
+                        <div class="clearfix">
+                      {% endif %}
+                          <label for="id_cap">{{ capm }}:</label>
+                          <div class="input">
+                              {{ fpform.cap }}
+                              <span class="help-inline">Human Check Question. Enter a value (Required)</span>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="fieldWrapper">
+                        <div class="clearfix">
+                          <div class="input">
+                              {{ fpform.capq }}
+                          </div>
+                        </div>
+                    </div>   
+                    <div class="actions">
+                        <input type="submit" value="Submit" class="btn primary">
+                    </div>
+                </form>
+            {% endif %}
+        </div>
+        <footer>
+            <p>&copy; 2012 St. Joseph's Convent High School, Robertsganj</p>
+        </footer> 
+    </div>
+{% endblock %}

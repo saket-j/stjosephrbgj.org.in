@@ -1,0 +1,278 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <script type="text/javascript">
+        function ValueChange()
+        {
+            if(document.getElementById('id_tit').selectedIndex==2)
+            {
+                document.getElementById('id_cla').disabled = true;
+                document.getElementById('id_yop').disabled = true;
+                document.getElementById('id_yj').disabled = false;
+                document.getElementById('id_subj').disabled = false;
+            }
+            else if(document.getElementById('id_tit').selectedIndex==3)
+            {
+                document.getElementById('id_cla').disabled = false;
+                document.getElementById('id_yop').disabled = false;
+                document.getElementById('id_yj').disabled = false;
+                document.getElementById('id_subj').disabled = false;
+            }
+            else
+            {
+                document.getElementById('id_cla').disabled = false;
+                document.getElementById('id_yop').disabled = false;
+                document.getElementById('id_yj').disabled = true;
+                document.getElementById('id_subj').disabled = true;
+            }
+        }
+    </script>
+    <div class="topbar" data-dropdown="dropdown">
+        <div class="fill">
+            <div class="container">
+              <ul class="nav">
+                <li><a href="{% url school.stjoseph.views.home %}">Home</a></li>
+                <li class="dropdown">
+                  <a class="dropdown-toggle" href="#">About</a>
+                  <ul class="dropdown-menu">
+                    <li><a href="{% url school.stjoseph.views.history %}">History</a></li>
+                    <li><a href="{% url school.stjoseph.views.song %}">School Song</a></li>
+                    <li><a href="{% url school.stjoseph.views.principal %}">Principal's Message</a></li>
+                  </ul>
+                </li>
+                <li class="dropdown">
+                  <a class="dropdown-toggle" href="#">The School</a>
+                  <ul class="dropdown-menu">
+                    <li><a href="{% url school.stjoseph.views.information %}">Information</a></li>
+                    <li><a href="{% url school.stjoseph.views.infrastructure %}">Infrastructure</a></li>
+                    <li><a href="{% url school.stjoseph.views.activities %}">Activities</a></li>
+                    <li><a href="{% url school.stjoseph.views.halloffame %}">Hall Of Fame</a></li>
+                  </ul>
+                </li>
+                <li><a href="{% url school.stjoseph.views.staff %}">Staff</a></li>
+                <li><a href="{% url school.stjoseph.views.students %}">Students</a></li>
+                <li><a href="{% url school.stjoseph.views.alumni %}">Alumni</a></li>
+                <li><a href="{% url school.stjoseph.views.gallery %}">Gallery</a></li>
+                <li><a href="{% url school.stjoseph.views.contact %}">Contact</a></li>
+              </ul>
+              <div class="pull-right">
+                <ul class="nav">
+                    <li><a href="{% url school.stjoseph.views.loginu %}">Login</a></li>
+                    <li class="active"><a href="#">Register</a></li>
+                </ul>
+              </div>
+            </div>
+        </div>    
+    </div>
+    <div class="container">
+        <div class="content">
+            <div class="page-header">
+              <h1>St. Joseph's Convent High School<small>Robertsganj</small></h1>
+            </div>
+            <div class="alert-message block-message success">
+                <h2>Registration</h2>
+            </div>
+            {% if registered %}
+                <p>Your Information has been saved.</p> 
+                <p>A link to activate your account has been mailed to your email address. Please, activate your account before login.</p>
+                <p>Note: In case you don't receive the activation mail, mail us at webadmin@stjosephrbgj.org.in, so that we can activate your account.</p>
+                <div class="fb-like" data-href="http://www.facebook.com/stjosephrbj" data-send="false" data-width="225" data-show-faces="false"></div>
+                <div class="actions"></div>
+            {% else %}
+                <div class="alert-message warning fade in" data-alert="alert">
+                    <a class="close" href="#">×</a>
+                    <p><strong>Past students register as alumni. Present students select "year of passing" as year you would pass that class.</strong></p>
+                </div>
+                {% if oerror %}
+                    <div class="alert-message error fade in" data-alert="alert">
+                        <a class="close" href="#">×</a>
+                        <p><strong>{{ oerror }}</strong></p>
+                    </div>
+                {% endif %}
+                <form action="/register/" method="post">{% csrf_token %}
+                    {{ form.non_field_errors }}
+                    <div class="fieldWrapper">
+                      {% if form.name.errors %}
+                        <div class="clearfix error">
+                      {% else %}
+                        <div class="clearfix">
+                      {% endif %}
+                          <label for="id_name">Name:</label>
+                          <div class="input">
+                              {{ form.name }}
+                              <span class="help-inline">Enter Your Full Name (Required)</span>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="fieldWrapper">
+                      {% if form.email.errors %}
+                        <div class="clearfix error">
+                      {% else %}
+                        <div class="clearfix">
+                      {% endif %}
+                          <label for="id_email">E-Mail:</label>
+                          <div class="input">
+                              {{ form.email }}
+                              <span class="help-inline">Enter Your Valid Email Address (Required)</span>
+                          </div>
+                        </div>
+                    </div>  
+                    <div class="fieldWrapper">
+                      {% if form.pas.errors %}
+                        <div class="clearfix error">
+                      {% else %}
+                        <div class="clearfix">
+                      {% endif %}
+                          <label for="id_pas">Password:</label>
+                          <div class="input">
+                              {{ form.pas }}
+                              <span class="help-inline">Minimum 6 character (Required)</span>
+                          </div>
+                        </div>
+                    </div> 
+                    <div class="fieldWrapper">
+                      {% if form.cpas.errors %}
+                        <div class="clearfix error">
+                      {% else %}
+                        <div class="clearfix">
+                      {% endif %}
+                          <label for="id_cpas">Confirm Password:</label>
+                          <div class="input">
+                              {{ form.cpas }}
+                              <span class="help-inline">Enter Same Password Again (Required)</span>
+                          </div>
+                        </div>
+                    </div>                  
+                    <div class="fieldWrapper">
+                      {% if form.tit.errors %}
+                        <div class="clearfix error">
+                      {% else %}
+                        <div class="clearfix">
+                      {% endif %}
+                          <label for="id_tit">Title:</label>
+                          <div class="input">
+                              {{ form.tit }}
+                              <span class="help-inline">Past Staff may also register as Staff. Past students register as alumni (Required)</span>
+                          </div>
+                        </div>
+                    </div>  
+                    <div class="fieldWrapper">
+                      {% if form.cla.errors %}
+                        <div class="clearfix error">
+                      {% else %}
+                        <div class="clearfix">
+                      {% endif %}
+                          <label for="id_cla">Class Last Attended/Studying in St. Joseph:</label>
+                          <div class="input">
+                              {{ form.cla }}
+                              <span class="help-inline">Select the appropriate option (Required)</span>
+                          </div>
+                        </div>
+                    </div> 
+                    <div class="fieldWrapper">
+                      {% if form.yop.errors %}
+                        <div class="clearfix error">
+                      {% else %}
+                        <div class="clearfix">
+                      {% endif %}
+                          <label for="id_yop">Year of Passing:</label>
+                          <div class="input">
+                              {{ form.yop }}
+                              <span class="help-inline">Enter the year you have passed/would pass above class (Required)</span>
+                          </div>
+                        </div>
+                    </div> 
+                    <div class="fieldWrapper">
+                      {% if form.yj.errors %}
+                        <div class="clearfix error">
+                      {% else %}
+                        <div class="clearfix">
+                      {% endif %}
+                          <label for="id_yj">Year of Joining as Staff:</label>
+                          <div class="input">
+                              {{ form.yj }}
+                              <span class="help-inline">Enter the Year (Required)</span>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="fieldWrapper">
+                      {% if form.subj.errors %}
+                        <div class="clearfix error">
+                      {% else %}
+                        <div class="clearfix">
+                      {% endif %}
+                          <label for="id_subj">Subjects Taught:</label>
+                          <div class="input">
+                              {{ form.subj }}
+                              <span class="help-inline">Subjects Taught in School (Required)</span>
+                          </div>
+                        </div>
+                    </div> 
+                    <div class="fieldWrapper">
+                      {% if form.cw.errors %}
+                        <div class="clearfix error">
+                      {% else %}
+                        <div class="clearfix">
+                      {% endif %}
+                          <label for="id_cw">About Me:</label>
+                          <div class="input">
+                              {{ form.cw }}
+                              <span class="help-block">Tell us something about your school life and what you currently do (required)</span>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="fieldWrapper">
+                      {% if form.lf.errors %}
+                        <div class="clearfix error">
+                      {% else %}
+                        <div class="clearfix">
+                      {% endif %}
+                          <label for="id_lf">Facebook:</label>
+                          <div class="input">
+                              {{ form.lf }}
+                              <span class="help-inline">Link to Your Facebook Profile (optional)</span>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="fieldWrapper">
+                      {% if form.con.errors %}
+                        <div class="clearfix error">
+                      {% else %}
+                        <div class="clearfix">
+                      {% endif %}
+                          <label for="id_con">Contact:</label>
+                          <div class="input">
+                              {{ form.con }}
+                              <span class="help-inline">Contact Number. Will not be visible to others (optional)</span>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="fieldWrapper">
+                      {% if form.cap.errors %}
+                        <div class="clearfix error">
+                      {% else %}
+                        <div class="clearfix">
+                      {% endif %}
+                          <label for="id_copm">{{ capm }}:</label>
+                          <div class="input">
+                              {{ form.cap }}
+                              <span class="help-inline">Human Check Question. Enter an integer (required)</span>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="fieldWrapper">
+                        <div class="clearfix">
+                              {{ form.capq }}
+                        </div>
+                    </div>
+                    <div class="actions">
+                        <input type="submit" value="Register" class="btn primary">
+                    </div>
+                </form>
+            {% endif %}
+        </div>
+        <footer>
+            <p>&copy; 2012 St. Joseph's Convent High School, Robertsganj</p>
+        </footer> 
+    </div>
+{% endblock %}

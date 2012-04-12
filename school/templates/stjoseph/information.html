@@ -1,0 +1,205 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="topbar" data-dropdown="dropdown">
+        <div class="fill">
+            <div class="container">
+              <ul class="nav">
+                <li><a href="{% url school.stjoseph.views.home %}">Home</a></li>
+                <li class="dropdown">
+                  <a class="dropdown-toggle" href="#">About</a>
+                  <ul class="dropdown-menu">
+                    <li><a href="{% url school.stjoseph.views.history %}">History</a></li>
+                    <li><a href="{% url school.stjoseph.views.song %}">School Song</a></li>
+                    <li><a href="{% url school.stjoseph.views.principal %}">Principal's Message</a></li>
+                  </ul>
+                </li>
+                <li class="dropdown">
+                  <a class="dropdown-toggle" href="#">The School</a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">Information</a></li>
+                    <li><a href="{% url school.stjoseph.views.infrastructure %}">Infrastructure</a></li>
+                    <li><a href="{% url school.stjoseph.views.activities %}">Activities</a></li>
+                    <li><a href="{% url school.stjoseph.views.halloffame %}">Hall Of Fame</a></li>
+                  </ul>
+                </li>
+                <li><a href="{% url school.stjoseph.views.staff %}">Staff</a></li>
+                <li><a href="{% url school.stjoseph.views.students %}">Students</a></li>
+                <li><a href="{% url school.stjoseph.views.alumni %}">Alumni</a></li>
+                <li><a href="{% url school.stjoseph.views.gallery %}">Gallery</a></li>
+                <li><a href="{% url school.stjoseph.views.contact %}">Contact</a></li>
+              </ul>
+              <div class="pull-right">
+                <ul class="nav">
+                    {% if uname %}
+                        <li><a href="/profile/{{ id }}/">{{ uname }}</a></li>
+                        <li><a href="{% url school.stjoseph.views.logoutu %}">Logout</a></li>
+                    {% else %}
+                        <li><a href="{% url school.stjoseph.views.loginu %}">Login</a></li>
+                        <li><a href="{% url school.stjoseph.views.register %}">Register</a></li>
+                    {% endif %}
+                </ul>
+              </div>
+            </div>
+        </div>    
+    </div>
+    <div class="container">
+        <div class="content">
+            <div class="page-header">
+              <h1>St. Joseph's Convent High School<small>Robertsganj</small></h1>
+            </div>
+            <div class="alert-message block-message success">
+                <h2>Information</h2>
+            </div>
+            <div class="row">
+                <div class="span3">
+                    <strong>Admission</strong>
+                </div>
+                <div class="span13">
+                    <p align="justify">Registration for admission to the school starts is last week of february, while classes commence in April.</p>
+                    <p align="justify">The students interested in taking admission to the school are required to obtain admission form from the school office and submit it to the office with all the required documents.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="span3">
+                    <strong>Withdrawl</strong>
+                </div>
+                <div class="span13">
+                    <ul>
+                        <li>The withdrawl notice should be given i writing one month in advance by the person responsible for the pupil and not by the pupil himself/herself. One month tution fee will be required if such a notice is not given. Those who apply for transfer certificate after reopening of the school is required to pay upto the current month fee regardless of whether or not the child has attended the school.</li>
+                        <li>No transfer certificate will be issued until all sums due to the school have been paid in full. A fee of Rs 100/- will be chareged for a transfer certificate.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="span3">
+                    <strong>School Timing</strong>
+                </div>
+                <div class="span13">
+                    <div class="row">
+                        <div class="span5">
+                            <strong>KG Classes</strong><br/>
+                            <div class="row">
+                                <div class="span1">
+                                    Summer:<br/>
+                                    Winter:
+                                </div>
+                                <div class="span3">
+                                    7:30 AM to 12:30 PM<br/>
+                                    8:00 AM to 12:50 PM
+                                </div>
+                            </div>
+                        </div>
+                        <div class="span5">
+                            <strong>Class I to X</strong><br/>
+                            <div class="row">
+                                <div class="span1">
+                                    Summer:<br/>
+                                    Winter:
+                                </div>
+                                <div class="span3">
+                                    7:30 AM to 1:30 PM<br/>
+                                    8:00 AM to 2:00 PM
+                                </div>
+                            </div>
+                        </div>
+                        <div class="span3">
+                            <strong>Office Hours</strong><br/>
+                            8:00 AM to 12:30 PM 
+                        </div>
+                    </div>
+                    <br/><p><i>The Principal will meet the parents from 8:30 AM to 9:30 AM or by prior appointment.</i></p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="span3">
+                    <strong>Uniform</strong>
+                </div>
+                <div class="span13">
+                    <strong>Summer</strong><br/>
+                    <div class="row">
+                        <div class="span6">
+                            <p align="justify"><strong><i>Girls: </i></strong>A navy-blue knee length pleated skirt, white short sleeved blouse, navy-blue socks reaching upto knee, black shoes with buckles, red ribbon and school tie and belts. Girls of class VIth and VIIth should wear navy-blue knee length divided skirts with box pleats. The uniform for classes VIIIth to Xth will consists of white salwar, navy-blue half sleeved kurta having shirt collar with 3 front buttons white dupatta.</p>
+                            <p align="justify"><i>Note: </i>Girls having long hair should tie two plaits with red ribbons. Girls with short hair should weara red ribbon or red band.</p>
+                        </div>
+                        <div class="span6">
+                            <p align="justify"><strong><i>Boys: </i></strong>A navy-blue half pant, white shirt with short sleeves, navy-blue socks reaching upto knee, black plain shoes and school belt and tie. Boys from Class VIth onwards should wear long pants. It is compulsory for boys to maintain a "crew-cut" hair style.</p>
+                        </div>
+                    </div>
+                    <strong>Winter</strong><br/><p align="justify">A navy-blue pullover with V neck and any warm clothing along with the school uniform provided the color is navy-blue.</p>
+                    <strong>P.T. Uniform</strong><br/>
+                    <div class="row">
+                        <div class="span6">
+                            <p align="justify"><strong><i>Girls: </i></strong>White divided pleated skirt, white short sleeved blouse, white socks reaching knee, white tennis shoes, white ribbon and school belt and tie.</p>
+                        </div>
+                        <div class="span6">
+                            <p align="justify"><strong><i>Boys: </i></strong>White short/pants, white short sleeved shirt, white socks, white tennis shoes and school belt and tie.</p>
+                        </div>
+                    </div>
+                    <p align="justify"><i>Note: </i>All the students are expected to come in their P.T. uniform on every Wednesday.<br/>K.G. Children need not have P.T. Uniform. Students who come to school without unform should bring a note of excuse from their parents else they will be send home. Students should always be clean and tidy in their dress and person</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="span3">
+                    <strong>Examination and Promotion</strong>
+                </div>
+                <div class="span13">
+                    <ol>
+                        <li>The engagement of private tutor is strongly discouraged. Should there be a genuine need in a particular case, the principal should be consulted before engaging a tutor.</li>
+                        <li>The school has two terms: April to September & October to March. There is an examination at the end of each term and progress report will be issued.</li>
+                        <li>It is compulsory to have 80% attendence in a year for the students to be eligible for promotion to the next class.</li>
+                        <li>Serious actions will be taken if the marks/grades are tampered with.</li>
+                        <li>There can be no anticipation or postponement of any test paper when students are ill. They should not be sent to answer any test in case of illness. The final result will be settled on the basis of the term's work and general performance during the year.</li>
+                        <li>Willful breach of any of the regulations for the conduct of an examination is punishable with expulsion from the examination or if subsequently discovered the cancellation of the answer script.</li>
+                        <li>Result declared at the close of the year are final and in any case will not be reconsidered.</li>
+                        <li>If any student loses the progress card, he/she will be fined Rs. 25/-.</li>
+                    </ol>
+                </div>
+            </div>
+            <div class="row">
+                <div class="span3">
+                    <strong>School Fees</strong>
+                </div>
+                <div class="span13">
+                    <p align="justify">All fees are payable in advance from 1st to 15th of the month in which they are due. In case the fee is not paid by last due date a fine of Rs 50/- will be charged. Fee with fine will be collected only on saturday.<br/>Payment of fees will be accepted only on presentation of the pupil's fee card.<br/>No reduction or allowance in fees is made for absence or vacation.<br/>No student will be allowed to sit for the terminal or final examination unless all dues have been upto date.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="span3">
+                    <strong>Rules and Regulations</strong>
+                </div>
+                <div class="span13">
+                    <ol>
+                        <li>Pupils cannot be admitted into the school without the transfer certificate of the school last attended.</li>
+                        <li>Pupils must attend the school regularly and punctualiy.the warning bell is rung at 7.30 am. the second bell is rung at 7.35am. when all the students with their respective teachers will assemble for prayer.</li>
+                        <li>All students should come to school clean and tidy in their school uniform. all are obliged to wear the uniform under the penality of expulsion from the class.</li>
+                        <li>When students move along the corridors or verandas as and when changing classes, they must keep silence and walk in a single or double line.</li>
+                        <li>Puntual and regular attendance is insisted upon.leave for absence may be granted for sufficient cause but an application from the parent orthe gaurdian which must be made in advance,whenever possible. When sending an application for leave name, class and section must be clearly mentioned.</li>
+                        <li>Running , playing or shouting inside the school building and verandahs is never allowed.</li>
+                        <li>Verbal requests through servants to allow students to go homebefore the school gets over will not be complied with.</li>
+                        <li>No pupil should leave the school premises during class hours without the knowledge and permission of the principal.</li>
+                        <li>All pupils are responsible to the school authorities for their conduct in and out of the school.</li>
+                        <li>Irregular attendance, insubordination to teachers, habitual inattention to school work, obstinacy in word or deed, wilful and repeated breach of school regulations are sufficient reasons for dismissal of students.</li>
+                        <li>If a student continues to be absent without a leave note for more than ten working days in succession, his/her name will be struck off the register.</li>
+                        <li>Pupils who cause damage of any kind in the class or school premises will have to make good the damage done. Each class will be responsible for looking after the class property.</li>
+                        <li>School day: monday to saturday.</li>
+                        <li>All the students are requried to speak english in the school. Students from class V to X will be strictly punished if found not doing so.</li>
+                        <li>Pupils must not remain in the classroom during the recess and P.T. period.</li>
+                        <li>Buying of sweets, icecream etc from hawhers on the streets outside the school premises is strictly forbidden.</li>
+                        <li>Students are not allowed to leave their classrooms without the permission of the teacher concerned.</li>
+                        <li>Student's personal things like tiffins, water bottles, pencil box, craft materials etc will not be sent to the class.</li>
+                        <li>Scribbling on the walls, desks and books is strictly forbidden. it is a bad habit and highly detrimental to the school.</li>
+                        <li>All pupils should excel in the practise of good manners and obedience to their teacher and elders.</li>
+                        <li>Private tutions are discourages. parents/guardians should not make private arrangements without the permission of the principal.</li>
+                        <li>Use of jewellary or bringing of expensive articles to school is strictly prohibited. The school will not be responsible for any such loss.</li>
+                    </ol>
+                </div>
+            </div>
+            <div class="actions">
+            </div>
+        </div>
+        <footer>
+            <p>&copy; 2012 St. Joseph's Convent High School, Robertsganj</p>
+        </footer> 
+    </div>
+{% endblock %}

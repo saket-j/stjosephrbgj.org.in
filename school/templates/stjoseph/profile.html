@@ -1,0 +1,134 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="topbar" data-dropdown="dropdown">
+        <div class="fill">
+            <div class="container">
+              <ul class="nav">
+                <li><a href="{% url school.stjoseph.views.home %}">Home</a></li>
+                <li class="dropdown">
+                  <a class="dropdown-toggle" href="#">About</a>
+                  <ul class="dropdown-menu">
+                    <li><a href="{% url school.stjoseph.views.history %}">History</a></li>
+                    <li><a href="{% url school.stjoseph.views.song %}">School Song</a></li>
+                    <li><a href="{% url school.stjoseph.views.principal %}">Principal's Message</a></li>
+                  </ul>
+                </li>
+                <li class="dropdown">
+                  <a class="dropdown-toggle" href="#">The School</a>
+                  <ul class="dropdown-menu">
+                    <li><a href="{% url school.stjoseph.views.information %}">Information</a></li>
+                    <li><a href="{% url school.stjoseph.views.infrastructure %}">Infrastructure</a></li>
+                    <li><a href="{% url school.stjoseph.views.activities %}">Activities</a></li>
+                    <li><a href="{% url school.stjoseph.views.halloffame %}">Hall Of Fame</a></li>
+                  </ul>
+                </li>
+                <li><a href="{% url school.stjoseph.views.staff %}">Staff</a></li>
+                <li><a href="{% url school.stjoseph.views.students %}">Students</a></li>
+                <li><a href="{% url school.stjoseph.views.alumni %}">Alumni</a></li>
+                <li><a href="{% url school.stjoseph.views.gallery %}">Gallery</a></li>
+                <li><a href="{% url school.stjoseph.views.contact %}">Contact</a></li>
+              </ul>
+              <div class="pull-right">
+                <ul class="nav">
+                    {% if uname %}
+                        {% if upro %}
+                            <li class="active"><a href="#">{{ uname }}</a></li>
+                        {% else %}
+                            <li><a href="/profile/{{ id }}/">{{ uname }}</a></li>
+                        {% endif %}
+                        <li><a href="{% url school.stjoseph.views.logoutu %}">Logout</a></li>
+                    {% else %}
+                        <li><a href="{% url school.stjoseph.views.loginu %}">Login</a></li>
+                        <li><a href="{% url school.stjoseph.views.register %}">Register</a></li>
+                    {% endif %}
+                </ul>
+              </div>
+            </div>
+        </div>    
+    </div>
+    <div class="container">
+        <div class="content">
+            <div class="page-header">
+              <h1>St. Joseph's Convent High School<small>Robertsganj</small></h1>
+            </div>
+            <div class="alert-message block-message success">
+                <h2>{{ name }}</h2>
+            </div>
+            <div class="row">
+              <div class="span11">
+                <div class="row">
+                  <div class="span8">
+                    <h4>About Me:</h4>
+                    <p>{{ cw }}</p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="span6">
+                    <h4>Title:</h4>
+                    <p>{{ tit }}</p>
+                  </div>
+                  {% if yj %}
+                    <div class="span5">
+                        <h4>Year of Joining as Staff:</h4>
+                        <p>{{ yj }}</p>
+                    </div>
+                  {% endif %}
+                  {% if cla %}
+                    <div class="span5">
+                        <h4>Class Last Attended:</h4>
+                        <p>{{ cla }}</p>
+                    </div>
+                  {% endif %}
+                </div>
+              </div>
+              <div class="span5">
+                {% if propic %}
+                  <div class="media-grid">
+                      <a href="#" style="width:100px;max-height:100px;"><img src="{{ propic }}" style="width:100px;max-height:100px;"/></a>
+                  </div>
+                {% endif %}
+              </div>
+            </div>
+            <div class="row">
+                {% if subj %}
+                    <div class="span6">
+                        <h4>Subjects:</h4>
+                        <p>{{ subj }}</p>
+                    </div>
+                {% endif %}
+                {% if yop %}
+                    <div class="span6">
+                        <h4>Year of Passing:</h4>
+                        <p>{{ yop }}</p>
+                    </div>
+                {% endif %}
+                <div class="span5">
+                    <h4>E-Mail:</h4>
+                    <a mailto="{{ email }}">{{ email }}</a>
+                </div>
+                {% if lf %}
+                    <div class="span5">
+                        <br>
+                        <a href="{{ lf }}" target="_blank"><img src="{{ STATIC_URL }}img/fb.jpeg" /></a>
+                    </div>
+                {% endif %}
+            </div>
+            {% if con %}
+                <div class="span5">
+                    <h4>Contact:</h4>
+                    <p>{{ con }}</p>
+                </div>
+            {% endif %}
+            <div class="actions">
+                {% if upro %}
+                    <a class="btn primary" href="{% url school.stjoseph.views.edit %}">Edit Profile</a>
+                    <a class="btn js-btn" href="{% url school.stjoseph.views.changepass %}">Change Password</a>
+                {% endif %}
+            </div>
+        </div>
+        <footer>
+            <p>&copy; 2012 St. Joseph's Convent High School, Robertsganj</p>
+        </footer> 
+    </div>
+{% endblock %}

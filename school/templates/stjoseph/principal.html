@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="topbar" data-dropdown="dropdown">
+        <div class="fill">
+            <div class="container">
+              <ul class="nav">
+                <li><a href="{% url school.stjoseph.views.home %}">Home</a></li>
+                <li class="dropdown">
+                  <a class="dropdown-toggle" href="#">About</a>
+                  <ul class="dropdown-menu">
+                    <li><a href="{% url school.stjoseph.views.history %}">History</a></li>
+                    <li><a href="{% url school.stjoseph.views.song %}">School Song</a></li>
+                    <li><a href="#">Principal's Message</a></li>
+                  </ul>
+                </li>
+                <li class="dropdown">
+                  <a class="dropdown-toggle" href="#">The School</a>
+                  <ul class="dropdown-menu">
+                    <li><a href="{% url school.stjoseph.views.information %}">Information</a></li>
+                    <li><a href="{% url school.stjoseph.views.infrastructure %}">Infrastructure</a></li>
+                    <li><a href="{% url school.stjoseph.views.activities %}">Activities</a></li>
+                    <li><a href="{% url school.stjoseph.views.halloffame %}">Hall Of Fame</a></li>
+                  </ul>
+                </li>
+                <li><a href="{% url school.stjoseph.views.staff %}">Staff</a></li>
+                <li><a href="{% url school.stjoseph.views.students %}">Students</a></li>
+                <li><a href="{% url school.stjoseph.views.alumni %}">Alumni</a></li>
+                <li><a href="{% url school.stjoseph.views.gallery %}">Gallery</a></li>
+                <li><a href="{% url school.stjoseph.views.contact %}">Contact</a></li>
+              </ul>
+              <div class="pull-right">
+                <ul class="nav">
+                    {% if uname %}
+                        <li><a href="/profile/{{ id }}/">{{ uname }}</a></li>
+                        <li><a href="{% url school.stjoseph.views.logoutu %}">Logout</a></li>
+                    {% else %}
+                        <li><a href="{% url school.stjoseph.views.loginu %}">Login</a></li>
+                        <li><a href="{% url school.stjoseph.views.register %}">Register</a></li>
+                    {% endif %}
+                </ul>
+              </div>
+            </div>
+        </div>    
+    </div>
+    <div class="container">
+        <div class="content">
+            <div class="page-header">
+              <h1>St. Joseph's Convent High School<small>Robertsganj</small></h1>
+            </div>
+            <div class="alert-message block-message success">
+                <h2>Principal's Message</h2>
+            </div>
+            <div class="row">
+                <div class="span11">
+                    <p align="justify">The 21st century is proved to be the age of science and we are living in the age of science. The existence of life seems impossible without the use of science. Science and technology brought home a variety of uses which made life easier and comfortable. To access the use of such technology quality education is vital necessary.</p>
+                    <p align="justify">Today like most aspects of life education for the future is becoming increasingly complex. Students are faced with an unprecedented array of alternatives and have access to continually increasing amounts of developments. St. Joseph School strives to provide quality education to the students, in order to prosper under the new environment and our new generation will have to imbibe a new set of value system in which they become self motivated, show initiative, have inner drive for outdoing themselves and optimistic enough to take reversal and setbacks in their stride.</p>
+                    <p align="justify">The various activities provided in the school would help the students to develop their personalities and it enabled them to tap the hidden potentials in them. Emphasis has been placed on developing life skills and academics required to equip our students to face the challenges in the ever Competitive arena of today's world.</p>
+                    <p align="justify">Success in life is not a matter of luck or genius. Success depends on adequate preparation and indomitable determination. It is a matter of finding opportunities and making fine use of them. St. Joseph's School has a history of great success and it has special privilege of an all India out reach through its system of education. May I express a word of sincere thanks to all the persons for being part of this venture to make history a reality.</p>
+                    <p align="justify">I would like to place my appreciation and thanks to Batch of 2004 for taking keen interest and pain to launch a website of St. Joseph School, Robertsganj. May all our dreams be realized with the help of God the Almighty who walks with us at every turn of our lives. I wish and pray that by the grace of God, let the light of this institution continue to shine and impart quality education to all who pass through its portals.</p>
+                    <p align="justify">Thanks and God bless you!</p>
+                    <p><h5>Sr Lucy</h5>Principal<br/>St. Joseph's Convent High School, Robertsganj</p>
+                </div>
+                <div class="span5">
+                    <div class="media-grid">
+                        <a href="#"><img src="{{ STATIC_URL }}img/principal.jpg"/></a>
+                    </div>
+                </div>
+            </div>
+            <div class="actions">
+            </div>
+        </div>
+        <footer>
+            <p>&copy; 2012 St. Joseph's Convent High School, Robertsganj</p>
+        </footer> 
+    </div>
+{% endblock %}

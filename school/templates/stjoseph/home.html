@@ -1,0 +1,119 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="topbar" data-dropdown="dropdown">
+        <div class="fill">
+            <div class="container">
+              <ul class="nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li class="dropdown">
+                  <a class="dropdown-toggle" href="#">About</a>
+                  <ul class="dropdown-menu">
+                    <li><a href="{% url school.stjoseph.views.history %}">History</a></li>
+                    <li><a href="{% url school.stjoseph.views.song %}">School Song</a></li>
+                    <li><a href="{% url school.stjoseph.views.principal %}">Principal's Message</a></li>
+                  </ul>
+                </li>
+                <li class="dropdown">
+                  <a class="dropdown-toggle" href="#">The School</a>
+                  <ul class="dropdown-menu">
+                    <li><a href="{% url school.stjoseph.views.information %}">Information</a></li>
+                    <li><a href="{% url school.stjoseph.views.infrastructure %}">Infrastructure</a></li>
+                    <li><a href="{% url school.stjoseph.views.activities %}">Activities</a></li>
+                    <li><a href="{% url school.stjoseph.views.halloffame %}">Hall Of Fame</a></li>
+                  </ul>
+                </li>
+                <li><a href="{% url school.stjoseph.views.staff %}">Staff</a></li>
+                <li><a href="{% url school.stjoseph.views.students %}">Students</a></li>
+                <li><a href="{% url school.stjoseph.views.alumni %}">Alumni</a></li>
+                <li><a href="{% url school.stjoseph.views.gallery %}">Gallery</a></li>
+                <li><a href="{% url school.stjoseph.views.contact %}">Contact</a></li>
+              </ul>
+              <div class="pull-right">
+                <ul class="nav">
+                    {% if uname %}
+                        <li><a href="/profile/{{ id }}/">{{ uname }}</a></li>
+                        <li><a href="{% url school.stjoseph.views.logoutu %}">Logout</a></li>
+                    {% else %}
+                        <li><a href="{% url school.stjoseph.views.loginu %}">Login</a></li>
+                        <li><a href="{% url school.stjoseph.views.register %}">Register</a></li>
+                    {% endif %}
+                </ul>
+              </div>
+            </div>
+        </div>    
+    </div>
+    <div class="container">
+        <div class="content">
+            <div class="page-header">
+              <h1>St. Joseph's Convent High School<small>Robertsganj</small></h1>
+            </div>
+            
+            <div class="alert-message warning fade in" data-alert="alert">
+                <a class="close" href="#">×</a>
+                {% if not uname %}
+                    <p><strong>The Registration is now live :-)</strong></p>
+                {% else %}
+                    <p><strong>Welcome! Help us grow, tell your batchmates to register :)</strong></p>
+                {% endif %}
+            </div>
+            {% if oerror %}
+                <div class="alert-message error fade in" data-alert="alert">
+                    <a class="close" href="#">×</a>
+                    <p><strong>{{ oerror }}</strong></p>
+                </div>
+            {% endif %}
+            {% if activated %}
+                <div class="alert-message success fade in" data-alert="alert">
+                    <a class="close" href="#">×</a>
+                    <p><strong>Your Account has been activated. You may login now.</strong></p>
+                </div>
+            {% endif %}
+            <div id="makeMeScrollable">
+	            <div class="scrollingHotSpotLeft"></div>
+	            <div class="scrollingHotSpotRight"></div>
+	            <div class="scrollWrapper">
+		            <div class="scrollableArea">
+		                <img src="{{ STATIC_URL }}img/home/8.jpg" />
+		                <img src="{{ STATIC_URL }}img/home/2.jpg" />
+		                <img src="{{ STATIC_URL }}img/home/3.jpg" />
+		                <img src="{{ STATIC_URL }}img/home/4.jpg" />
+		                <img src="{{ STATIC_URL }}img/home/5.jpg" />
+		                <img src="{{ STATIC_URL }}img/home/6.jpg" />
+		                <img src="{{ STATIC_URL }}img/home/7.jpg" />
+		                <img src="{{ STATIC_URL }}img/home/1.jpg" id="startAtMe" />
+		                <img src="{{ STATIC_URL }}img/home/9.jpg" />
+		                <img src="{{ STATIC_URL }}img/home/10.jpg" />
+		            </div>
+	            </div>
+            </div>
+            <div class="row">
+                <div class="span5">
+                    <div class="alert-message block-message warning">
+                    <h4>Updates</h4>
+                    <ul>
+                        <li>All the alumni, teachers and students are requested to register on the website.</li>
+                        <li>Christmas Celebration on Dec 22, 2011.</li>
+                    </ul>
+                    </div>
+                    <div class="fb-like" data-href="http://stjosephrbgj.org.in/" data-send="false" data-layout="button_count" data-width="225" data-show-faces="false" data-action="recommend"></div>
+                    <p></p>
+                    <div class="fb-like" data-href="http://www.facebook.com/stjosephrbj" data-send="false" data-width="225" data-show-faces="false"></div>
+                </div>
+                <div class="span11">
+                    <div class="alert-message block-message success">
+                    <h4>About School</h4>
+                    <p align="justify">St. Joseph's Convent High School, Robertsganj is a Christian Institution established and administered by the religious Congregation of the Ursulines of Mary Immaculate, founded by Mother Brigida of Jesus in 1649. School was started in 1964.</p>
+                    <p align="justify">The school aims at education of the catholic community around and extends its service to members of other communities to the extent possible. The school stands for academic excellence, development of skills and character formation, based on love of God and service of the people as modelled in Jesus Christ with a view to train citizens of remarkable all-around development and sinscere commitment to God and country.</p>
+                    <p  align="justify">It conducts classes upto std. X in accordance with the 10+2 pattern of Central Board of Secondary Education, New Delhi.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="actions">
+            </div>
+        </div>
+        <footer>
+            <p>&copy; 2012 St. Joseph's Convent High School, Robertsganj</p>
+        </footer> 
+    </div>
+{% endblock %}

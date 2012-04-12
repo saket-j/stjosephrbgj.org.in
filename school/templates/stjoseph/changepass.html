@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="topbar" data-dropdown="dropdown">
+        <div class="fill">
+            <div class="container">
+              <ul class="nav">
+                <li><a href="{% url school.stjoseph.views.home %}">Home</a></li>
+                <li class="dropdown">
+                  <a class="dropdown-toggle" href="#">About</a>
+                  <ul class="dropdown-menu">
+                    <li><a href="{% url school.stjoseph.views.history %}">History</a></li>
+                    <li><a href="{% url school.stjoseph.views.song %}">School Song</a></li>
+                    <li><a href="{% url school.stjoseph.views.principal %}">Principal's Message</a></li>
+                  </ul>
+                </li>
+                <li class="dropdown">
+                  <a class="dropdown-toggle" href="#">The School</a>
+                  <ul class="dropdown-menu">
+                    <li><a href="{% url school.stjoseph.views.information %}">Information</a></li>
+                    <li><a href="{% url school.stjoseph.views.infrastructure %}">Infrastructure</a></li>
+                    <li><a href="{% url school.stjoseph.views.activities %}">Activities</a></li>
+                    <li><a href="{% url school.stjoseph.views.halloffame %}">Hall Of Fame</a></li>
+                  </ul>
+                </li>
+                <li><a href="{% url school.stjoseph.views.staff %}">Staff</a></li>
+                <li><a href="{% url school.stjoseph.views.students %}">Students</a></li>
+                <li><a href="{% url school.stjoseph.views.alumni %}">Alumni</a></li>
+                <li><a href="{% url school.stjoseph.views.gallery %}">Gallery</a></li>
+                <li><a href="{% url school.stjoseph.views.contact %}">Contact</a></li>
+              </ul>
+              <div class="pull-right">
+                <ul class="nav">
+                    {% if uname %}
+                        <li><a href="/profile/{{ id }}/">{{ uname }}</a></li>
+                        <li><a href="{% url school.stjoseph.views.logoutu %}">Logout</a></li>
+                    {% else %}
+                        <li><a href="{% url school.stjoseph.views.loginu %}">Login</a></li>
+                        <li><a href="{% url school.stjoseph.views.register %}">Register</a></li>
+                    {% endif %}
+                </ul>
+              </div>
+            </div>
+        </div>    
+    </div>
+    <div class="container">
+        <div class="content">
+            <div class="page-header">
+              <h1>St. Joseph's Convent High School<small>Robertsganj</small></h1>
+            </div>
+            <div class="alert-message block-message success">
+                <h2>{{ title }}</h2>
+            </div>
+            {% if passup %}
+                <p><i>Your password has been updated.</i></p>
+                <div class="actions"></div>
+            {% else %}
+                {% if uname %}
+                    <form action="/changepass/" method="post">{% csrf_token %}
+                        {{ cpform.non_field_errors }}
+                        <div class="fieldWrapper">
+                          {% if cpform.pas.errors %}
+                            <div class="clearfix error">
+                          {% else %}
+                            <div class="clearfix">
+                          {% endif %}
+                              <label for="id_pas">New Password:</label>
+                              <div class="input">
+                                  {{ cpform.pas }}
+                                  <span class="help-inline">Minimum 6 character (Required)</span>
+                              </div>
+                            </div>
+                        </div> 
+                        <div class="fieldWrapper">
+                          {% if cpform.cpas.errors %}
+                            <div class="clearfix error">
+                          {% else %}
+                            <div class="clearfix">
+                          {% endif %}
+                              <label for="id_cpas">Confirm Password:</label>
+                              <div class="input">
+                                  {{ cpform.cpas }}
+                                  <span class="help-inline">Enter Same Password Again (Required)</span>
+                              </div>
+                            </div>
+                        </div>
+                        <div class="actions">
+                            <input type="submit" value="Save" class="btn primary">
+                        </div>
+                    </form>
+                {% else %}
+                    <p><i>You need to be logged in to view this page. Please login.</i></p>
+                    <div class="actions"></div>
+                {% endif %}  
+            {% endif %}
+        </div>
+        <footer>
+            <p>&copy; 2012 St. Joseph's Convent High School, Robertsganj</p>
+        </footer> 
+    </div>
+{% endblock %}
